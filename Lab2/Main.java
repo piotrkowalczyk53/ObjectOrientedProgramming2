@@ -17,12 +17,17 @@ class Main {
             date = LocalDate.of(Integer.parseInt(args[3]), Integer.parseInt(args[1]), 1);
         }
 
+        //print name of the month & year
         System.out.printf("%13s", date.getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("pl")));
         System.out.println(" " + date.getYear());
+
+        //print literals symbolising days of week
         for (int i = 1; i <= 7; i++) {
             System.out.print("  " + DayOfWeek.of(i).getDisplayName(TextStyle.NARROW_STANDALONE, Locale.forLanguageTag("pl")));
         }
         System.out.println();
+
+        //print days of month in form of calendar page
         int length = date.lengthOfMonth();
         int today = date.getDayOfMonth();
         int position = date.withDayOfMonth(1).getDayOfWeek().getValue(); //gets numeric value of day of the week current moth started on
