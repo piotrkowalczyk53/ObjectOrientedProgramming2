@@ -10,7 +10,7 @@ public class Blackjack {
     private int computerAccount;
     private int playerAccount;
     private final Deck deck;
-    private String playerCards = "";
+    private String playerCards;
     private Card firstComputerCard;
 
     private Blackjack(Builder builder)
@@ -20,10 +20,12 @@ public class Blackjack {
         computerAccount = builder.computerAccount;
         playerAccount = builder.playerAccount;
         deck = builder.deck;
+        playerCards = builder.playerCards;
+        firstComputerCard = builder.firstComputerCard;
     }
 
     public void game() {
-        System.out.println("Witaj w grze w oczko!");
+        System.out.println("Witaj w grze w oczko " + name + "!");
         System.out.println("Dostępne opcje: PLAY, STOP, QUIT");
         System.out.println("PLAY - Rozegranie następnej rundy");
         System.out.println("STOP - Podliczenie punktów i zakończenie rozgrywki");
@@ -101,6 +103,8 @@ public class Blackjack {
         private int computerAccount;
         private int playerAccount;
         private Deck deck;
+        private String playerCards;
+        private Card firstComputerCard;
 
         public Builder(String name, int max_iter) {
             this.name = name;
@@ -108,6 +112,8 @@ public class Blackjack {
             this.computerAccount = 0;
             this.playerAccount = 0;
             this.deck = new Deck();
+            this.playerCards = "";
+            firstComputerCard = null;
         }
 
         public Blackjack build()
